@@ -148,12 +148,6 @@ def validate_and_filter(transactions, region=None, min_amount=None, max_amount=N
         min_avail = min(amounts)
         max_avail = max(amounts)
 
-        # print available options to user
-        print("\n--- Available filter options ---")
-        print(f"Regions: {', '.join(available_regions)}")
-        print(f"Transaction Amount Range: {min_avail} to {max_avail}")
-        print("--------------------------------")
-
     # apply filters
     filtered_list = valid_transactions
     initial_valid_count = len(valid_transactions)
