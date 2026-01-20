@@ -180,4 +180,3 @@ def validate_and_filter(transactions, region=None, min_amount=None, max_amount=N
     print(f"Valid records after cleaning: {len(valid_transactions)}")
 
     return final_list, invalid_count, filter_summary
-
