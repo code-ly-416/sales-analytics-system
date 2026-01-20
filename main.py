@@ -1,5 +1,6 @@
 from utils.file_handler import *
 from utils.data_processor import *
+from utils.api_handler import *
 
 
 def main():
@@ -19,6 +20,9 @@ def main():
     7. Display validation summary
     (do 1 to 7 based on file_handler.py)
     8. Perform all data analyses (call all functions from data_processor.py)
+    9. Fetch product info from API
+    10. Enrich sales data with API fields
+    11. Save enriched data to file
 
     Error Handling:
     - Wrap entire process in try-except
@@ -98,9 +102,25 @@ def main():
         print(f"✓ Valid: {len(validated_transactions)} | Invalid: {invalid_count}")
         print()
 
-        # 7 Display validation summary
+        # 7 Display validation summary / analysis placeholder
         print("[5/10] Analyzing sales data...")
         print("✓ Analysis complete")
+        print()
+
+        # 8 Fetch products from API
+        print("[6/10] Fetching product data from API...")
+        api_products = fetch_all_products()
+
+        # 9 Enrich transactions with API data
+        print("[7/10] Enriching sales data...")
+        product_mapping = create_product_mapping(api_products)
+        enriched_transactions = enrich_sales_data(validated_transactions, product_mapping)
+        print(f"✓ Enriched {len(enriched_transactions)} transactions")
+        print()
+
+        # 10 Save enriched data
+        print("[8/10] Saving enriched data...")
+        save_enriched_data(enriched_transactions)
 
     except Exception as e:
         print(f"Error: {e}")

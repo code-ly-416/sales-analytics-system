@@ -6,7 +6,7 @@ def fetch_all_products():
 
     Returns: list of product dictionaries
     """
-    url = "https://dummyjson.com/products?limit=100"
+    url = "https://dummyjson.com/products?limit=0"
 
     try:
         print(f"   > Connecting to {url}...")
@@ -20,7 +20,7 @@ def fetch_all_products():
         # the API returns a dictionary with a products key containing the list
         if 'products' in data:
             products = data['products']
-            print(f"   ✓ Successfully fetched {len(products)} products from API")
+            print(f"   ✓ Fetched {len(products)} products")
 
             return products
         else:
@@ -43,7 +43,7 @@ def create_product_mapping(api_products):
 
     Parameters: api_products from fetch_all_products()
 
-    Returns: dictionary mapping product IDs to info
+    Returns dictionary mapping product IDs to info
     """
     mapping = {}
 

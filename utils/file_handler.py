@@ -123,12 +123,6 @@ def validate_and_filter(transactions, region=None, min_amount=None, max_amount=N
             if not t['TransactionID'].startswith('T'):
                 invalid_count += 1
                 continue
-            if not t['ProductID'].startswith('P'):
-                invalid_count += 1
-                continue
-            if not t['CustomerID'].startswith('C'):
-                invalid_count += 1
-                continue
 
             # if all checks pass, add to valid list
             valid_transactions.append(t)
